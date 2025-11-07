@@ -1,0 +1,33 @@
+/* Styling the Hero background for a dramatic effect */
+.hero-bg {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)),
+    url("https://huggingface.co/spaces/UnTam3d/cc-auto-repairs-speedy-wrench-wizards/resolve/main/images/CC%20Auto%20hero%20image%20red.jpg");
+  background-size: cover;
+  background-position: center;
+  /* Ensure the container height is dramatic */
+  height: 80vh;
+}
+
+/* Hover effects for cards */
+.service-card {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border: 1px solid transparent; /* Base border for effect */
+}
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 30px rgba(224, 22, 43, 0.2),
+    0 4px 6px rgba(224, 22, 43, 0.1);
+  border-color: rgba(224, 22, 43, 0.5);
+}
+
+/* Base background for the entire application */
+body {
+  background-color: #121212; /* Darkest background */
+  color: #e0e0e0; /* Light gray text */
+}
+
+/* Navigation and Footer use the secondary color */
+nav,
+footer {
+  background-color: #1a1a1a;
+}
