@@ -1,7 +1,7 @@
 /* Styling the Hero background for a dramatic effect */
 .hero-bg {
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)),
-    url("https://huggingface.co/spaces/UnTam3d/cc-auto-repairs-speedy-wrench-wizards/resolve/main/images/CC%20Auto%20hero%20image%20red.jpg");
+    url("images/CC Auto hero image red.jpg");
   background-size: cover;
   background-position: center;
   /* Ensure the container height is dramatic */

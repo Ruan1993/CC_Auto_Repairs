@@ -69,5 +69,12 @@ document.addEventListener("click", (e) => {
   }
 });
 
-// Initialize Feather icons
-feather.replace();
+if (window.feather && typeof feather.replace === "function") {
+  feather.replace();
+} else {
+  window.addEventListener("load", () => {
+    if (window.feather && typeof feather.replace === "function") {
+      feather.replace();
+    }
+  });
+}
