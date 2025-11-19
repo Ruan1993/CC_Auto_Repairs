@@ -247,10 +247,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const copyBtn = document.getElementById("share-copy");
 const copyTip = document.getElementById("share-copy-tip");
+const SHARE_URL = "https://ccautorepairs.netlify.app/";
 if (copyBtn) {
   copyBtn.addEventListener("click", async () => {
     try {
-      await navigator.clipboard.writeText(window.location.href);
+      await navigator.clipboard.writeText(SHARE_URL);
       if (copyTip) {
         copyTip.textContent = "Copied!";
         copyTip.style.opacity = 1;
