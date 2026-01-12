@@ -3,21 +3,47 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Professional auto repair in Dana Bay, Mossel Bay. Major and minor services, suspensions, brake & clutch. Book your appointment today." />
+    <meta
+      name="description"
+      content="Professional auto repair in Dana Bay, Mossel Bay. Major and minor services, suspensions, brake & clutch. Book your appointment today."
+    />
     <meta name="theme-color" content="#E0162B" />
     <title>CC Auto Repairs - Performance & Professional Service</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="images/CC%20Auto%20Repairs%20Logo.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="images/CC%20Auto%20Repairs%20Logo.png"
+    />
     <link rel="apple-touch-icon" href="images/CC%20Auto%20Repairs%20Logo.png" />
     <link href="dist/tailwind.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js" defer></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"
+      defer
+    ></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
-    <meta property="og:title" content="CC Auto Repairs - Performance & Professional Service" />
-    <meta property="og:description" content="Trusted auto service in Dana Bay, Mossel Bay. Book your appointment today." />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <meta
+      property="og:title"
+      content="CC Auto Repairs - Performance & Professional Service"
+    />
+    <meta
+      property="og:description"
+      content="Trusted auto service in Dana Bay, Mossel Bay. Book your appointment today."
+    />
     <meta property="og:url" content="https://ccautorepairs.netlify.app/" />
-    <meta property="og:image" content="https://ccautorepairs.netlify.app/images/CC%20Auto%20Repairs%20Logo.png" />
-    <meta property="og:image:secure_url" content="https://ccautorepairs.netlify.app/images/CC%20Auto%20Repairs%20Logo.png" />
+    <meta
+      property="og:image"
+      content="https://ccautorepairs.netlify.app/images/CC%20Auto%20Repairs%20Logo.png"
+    />
+    <meta
+      property="og:image:secure_url"
+      content="https://ccautorepairs.netlify.app/images/CC%20Auto%20Repairs%20Logo.png"
+    />
     <meta property="og:image:alt" content="CC Auto Repairs Logo" />
     <meta property="og:type" content="website" />
     <link rel="stylesheet" href="style.css" />
@@ -132,7 +158,9 @@
       </div>
     </nav>
 
-    <section class="hero-bg flex items-center justify-center text-white min-h-[80vh]">
+    <section
+      class="hero-bg flex items-center justify-center text-white min-h-[80vh]"
+    >
       <div
         class="text-center px-4 backdrop-blur-sm bg-black/40 p-8 rounded-xl border-2 border-primary/50 reveal"
       >
@@ -161,7 +189,7 @@
           </a>
         </div>
       </div>
-  </section>
+    </section>
 
     <section id="services" class="py-20 bg-transparent">
       <div class="container mx-auto px-6">
@@ -186,10 +214,15 @@
             id="service-card"
             class="bg-card-bg/60 backdrop-blur-md px-5 py-6 sm:p-8 rounded-2xl border border-red-500/20 hover:border-primary transition-opacity duration-300 transition-transform shadow-lg w-full max-w-[80vw] sm:max-w-[85vw]"
           >
-            <div class="bg-primary/20 p-4 rounded-full w-14 h-14 flex items-center justify-center mb-6">
+            <div
+              class="bg-primary/20 p-4 rounded-full w-14 h-14 flex items-center justify-center mb-6"
+            >
               <span id="service-icon" class="inline-flex"></span>
             </div>
-            <h3 id="service-title" class="text-lg font-extrabold text-white mb-3"></h3>
+            <h3
+              id="service-title"
+              class="text-lg font-extrabold text-white mb-3"
+            ></h3>
             <p id="service-desc" class="text-gray-400 text-base"></p>
           </div>
 
@@ -280,9 +313,7 @@
           </div>
         </div>
       </div>
-  </section>
-
-    
+    </section>
 
     <section
       id="about"
@@ -310,7 +341,9 @@
               the most trusted name in local auto service.
             </p>
           </div>
-          <div class="lg:w-1/2 flex flex-col justify-center reveal reveal-delay-200">
+          <div
+            class="lg:w-1/2 flex flex-col justify-center reveal reveal-delay-200"
+          >
             <div class="grid grid-cols-2 gap-4 text-left">
               <div class="flex items-center">
                 <i data-feather="award" class="text-primary mr-2 w-5 h-5"></i>
@@ -340,47 +373,53 @@
           </div>
         </div>
       </div>
-  </section>
+    </section>
 
     <script>
       (function () {
         function initReveal() {
-          var elements = document.querySelectorAll('.reveal');
-          if (!('IntersectionObserver' in window)) {
-            elements.forEach(function (el) { el.classList.add('show'); });
+          var elements = document.querySelectorAll(".reveal");
+          if (!("IntersectionObserver" in window)) {
+            elements.forEach(function (el) {
+              el.classList.add("show");
+            });
             return;
           }
-          var observer = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-              if (entry.isIntersecting) {
-                entry.target.classList.add('show');
-                observer.unobserve(entry.target);
-              }
-            });
-          }, { threshold: 0, rootMargin: '0px 0px -10% 0px' });
+          var observer = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add("show");
+                  observer.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0, rootMargin: "0px 0px -10% 0px" }
+          );
           elements.forEach(function (el) {
             var rect = el.getBoundingClientRect();
             if (rect.top < window.innerHeight * 0.95) {
-              el.classList.add('show');
+              el.classList.add("show");
             } else {
               observer.observe(el);
             }
           });
         }
-        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        if (
+          document.readyState === "complete" ||
+          document.readyState === "interactive"
+        ) {
           setTimeout(initReveal, 0);
         } else {
-          window.addEventListener('DOMContentLoaded', initReveal);
+          window.addEventListener("DOMContentLoaded", initReveal);
         }
-        window.addEventListener('load', function () {
-          if (window.feather && typeof window.feather.replace === 'function') {
+        window.addEventListener("load", function () {
+          if (window.feather && typeof window.feather.replace === "function") {
             window.feather.replace();
           }
         });
       })();
     </script>
-
-    
 
     <section class="py-20 bg-secondary/70">
       <div class="container mx-auto px-6">
@@ -422,10 +461,16 @@
               <i data-feather="star" class="w-5 h-5 fill-current"></i>
               <i data-feather="star" class="w-5 h-5 fill-current"></i>
             </div>
-            <p id="review-text" class="text-gray-300 italic mb-4 text-base sm:text-lg"></p>
+            <p
+              id="review-text"
+              class="text-gray-300 italic mb-4 text-base sm:text-lg"
+            ></p>
             <div class="flex items-center">
               <i data-feather="user" class="w-6 h-6 text-primary mr-3"></i>
-              <h4 id="review-author" class="font-bold text-white text-base sm:text-lg"></h4>
+              <h4
+                id="review-author"
+                class="font-bold text-white text-base sm:text-lg"
+              ></h4>
             </div>
           </div>
 
@@ -439,8 +484,6 @@
         </div>
       </div>
     </section>
-
-    
 
     <section id="contact" class="py-20 bg-transparent">
       <div class="container mx-auto px-6">
@@ -502,7 +545,7 @@
                   id="phone"
                   name="phone"
                   required
-                    class="w-full px-4 py-3 bg-card-bg/60 text-white border border-gray-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary placeholder-gray-500 transition"
+                  class="w-full px-4 py-3 bg-card-bg/60 text-white border border-gray-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary placeholder-gray-500 transition"
                   placeholder="Phone number"
                 />
               </div>
@@ -635,31 +678,50 @@
               <div class="border-t border-gray-700 pt-6">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <h4 class="font-medium text-white mb-4">Find Us & Connect</h4>
+                    <h4 class="font-medium text-white mb-4">
+                      Find Us & Connect
+                    </h4>
                     <div class="flex space-x-4">
                       <a
                         href="tel:0742187468"
                         class="bg-green-600 hover:bg-green-700 p-3 rounded-full transition shadow-lg group relative"
                       >
                         <i data-feather="phone" class="text-white w-6 h-6"></i>
-                        <span class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap">Call us</span>
+                        <span
+                          class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap"
+                          >Call us</span
+                        >
                       </a>
                       <a
                         href="https://wa.me/27742187468?text=Hi%20CC%20Auto%20Repairs%2C%20I%27d%20like%20to%20book%20a%20service."
                         target="_blank"
                         class="bg-green-500 hover:bg-green-600 p-3 rounded-full transition shadow-lg group relative"
                       >
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 text-white" aria-hidden="true">
-                          <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 16 16"
+                          fill="currentColor"
+                          class="w-6 h-6 text-white"
+                          aria-hidden="true"
+                        >
+                          <path
+                            d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"
+                          />
                         </svg>
-                        <span class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap">Whatsapp</span>
+                        <span
+                          class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap"
+                          >Whatsapp</span
+                        >
                       </a>
                       <a
                         href="mailto:cornebotha6991@gmail.com"
                         class="bg-primary hover:bg-[#A90F1E] p-3 rounded-full transition shadow-lg group relative"
                       >
                         <i data-feather="mail" class="text-white w-6 h-6"></i>
-                        <span class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap">Email us</span>
+                        <span
+                          class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap"
+                          >Email us</span
+                        >
                       </a>
                       <a
                         href="https://share.google/Ytcs8eO9rc2Nc4edX"
@@ -678,40 +740,67 @@
                           stroke-linejoin="round"
                           class="feather feather-map-pin text-white w-6 h-6"
                         >
-                          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                          <path
+                            d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
+                          ></path>
                           <circle cx="12" cy="10" r="3"></circle>
                         </svg>
-                        <span class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap">Find us on Google</span>
+                        <span
+                          class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap"
+                          >Find us on Google</span
+                        >
                       </a>
                     </div>
                   </div>
                   <div>
-                    <h4 class="font-medium text-white mb-4">Share our website</h4>
+                    <h4 class="font-medium text-white mb-4">
+                      Share our website
+                    </h4>
                     <div class="flex space-x-4">
                       <a
                         href="https://wa.me/?text=CC%20Auto%20Repairs%20-%20Dana%20Bay%20%28https%3A%2F%2Fccautorepairs.netlify.app%2F%29"
                         target="_blank"
                         class="bg-green-500 hover:bg-green-600 p-3 rounded-full transition shadow-lg group relative"
                       >
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 text-white" aria-hidden="true">
-                          <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 16 16"
+                          fill="currentColor"
+                          class="w-6 h-6 text-white"
+                          aria-hidden="true"
+                        >
+                          <path
+                            d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"
+                          />
                         </svg>
-                        <span class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap">Whatsapp</span>
+                        <span
+                          class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap"
+                          >Whatsapp</span
+                        >
                       </a>
                       <a
                         href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fccautorepairs.netlify.app%2F"
                         target="_blank"
                         class="bg-blue-700 hover:bg-blue-800 p-3 rounded-full transition shadow-lg group relative"
                       >
-                        <i data-feather="facebook" class="text-white w-6 h-6"></i>
-                        <span class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap">Facebook</span>
+                        <i
+                          data-feather="facebook"
+                          class="text-white w-6 h-6"
+                        ></i>
+                        <span
+                          class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap"
+                          >Facebook</span
+                        >
                       </a>
                       <a
                         href="sms:?&body=CC%20Auto%20Repairs%20-%20Dana%20Bay%20https%3A%2F%2Fccautorepairs.netlify.app%2F"
                         class="bg-yellow-600 hover:bg-yellow-700 p-3 rounded-full transition shadow-lg group relative"
                       >
                         <i data-feather="send" class="text-white w-6 h-6"></i>
-                        <span class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap">SMS</span>
+                        <span
+                          class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap"
+                          >SMS</span
+                        >
                       </a>
                       <button
                         id="share-copy"
@@ -719,7 +808,11 @@
                         type="button"
                       >
                         <i data-feather="copy" class="text-white w-6 h-6"></i>
-                        <span id="share-copy-tip" class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap">Copy Link</span>
+                        <span
+                          id="share-copy-tip"
+                          class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap"
+                          >Copy Link</span
+                        >
                       </button>
                     </div>
                   </div>
@@ -830,18 +923,8 @@
 
         <div class="border-t border-gray-800 mt-10 pt-8 text-center">
           <p class="text-gray-500 text-sm">
-            © <span id="copyright-year">2025</span> CC Auto Repairs. All rights reserved.
-          </p>
-          <p class="text-gray-500 text-sm mt-2">
-            Designed by
-            <a
-              href="https://rcdigitalcreations.co.za"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-primary hover:underline"
-            >
-              RC Digital Creations
-            </a>
+            © <span id="copyright-year">2025</span> CC Auto Repairs. All rights
+            reserved.
           </p>
           <p class="text-gray-500 text-sm mt-2">
             Designed by
