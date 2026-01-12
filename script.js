@@ -265,3 +265,12 @@ if (copyBtn) {
     }
   });
 }
+
+(() => {
+  const el = document.getElementById("copyright-year");
+  if (!el) return;
+  const startYear = 2025;
+  const currentYear = new Date().getFullYear();
+  el.textContent =
+    currentYear > startYear ? `${startYear}–${currentYear}` : `${startYear}`;
+})();
