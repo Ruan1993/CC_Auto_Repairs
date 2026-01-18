@@ -84,16 +84,25 @@ const fallbackReviews = [
     text:
       "They explained everything clearly and finished faster than expected. The best auto service experience I've had locally!",
     author: "Michael Johnson",
+    rating: 5,
+    photo: null,
+    relativeTime: "",
   },
   {
     text:
       "Owner Corne diagnosed my suspension issue accurately and provided excellent, honest service. Will definitely return for all my repairs.",
     author: "Sarah Williams",
+    rating: 5,
+    photo: null,
+    relativeTime: "",
   },
   {
     text:
       "My car runs smoother after their brake service and fluid change. Transparent pricing and quality service for a first-time customer.",
     author: "David Rodriguez",
+    rating: 5,
+    photo: null,
+    relativeTime: "",
   },
 ];
 
@@ -102,12 +111,45 @@ let reviews = fallbackReviews.slice();
 const reviewTextEl = document.getElementById("review-text");
 const reviewAuthorEl = document.getElementById("review-author");
 const reviewCardEl = document.getElementById("review-card");
+const reviewAvatarEl = document.getElementById("review-avatar");
+const reviewInitialsEl = document.getElementById("review-initials");
+const reviewMetaEl = document.getElementById("review-meta");
 const reviewPrevBtn = document.getElementById("review-prev");
 const reviewNextBtn = document.getElementById("review-next");
 
 let reviewIndex = 0;
 let reviewTimer = null;
 const ROTATE_MS = 6000;
+
+function renderReviewDetails(review) {
+  if (reviewAvatarEl && reviewInitialsEl) {
+    const hasPhoto = review.photo && typeof review.photo === "string";
+    if (hasPhoto) {
+      reviewAvatarEl.src = review.photo;
+      reviewAvatarEl.alt = review.author || "Reviewer";
+      reviewAvatarEl.classList.remove("hidden");
+      reviewInitialsEl.classList.add("hidden");
+    } else {
+      reviewAvatarEl.src = "";
+      reviewAvatarEl.classList.add("hidden");
+      const name = review.author || "";
+      const initial = name.trim().charAt(0).toUpperCase() || "C";
+      reviewInitialsEl.textContent = initial;
+      reviewInitialsEl.classList.remove("hidden");
+    }
+  }
+  if (reviewMetaEl) {
+    const parts = [];
+    if (typeof review.rating === "number" && review.rating > 0) {
+      const rounded = Math.round(review.rating * 10) / 10;
+      parts.push(`${rounded.toFixed(1)} ★`);
+    }
+    if (review.relativeTime && typeof review.relativeTime === "string") {
+      parts.push(review.relativeTime);
+    }
+    reviewMetaEl.textContent = parts.join(" · ") || "Google review";
+  }
+}
 
 function showReview(i, direction = "next") {
   reviewIndex = (i + reviews.length) % reviews.length;
@@ -116,8 +158,10 @@ function showReview(i, direction = "next") {
   reviewCardEl.style.opacity = 0;
   reviewCardEl.style.transform = `translateX(${outOffset}px)`;
   setTimeout(() => {
-    reviewTextEl.textContent = reviews[reviewIndex].text;
-    reviewAuthorEl.textContent = reviews[reviewIndex].author;
+    const current = reviews[reviewIndex];
+    reviewTextEl.textContent = current.text;
+    reviewAuthorEl.textContent = current.author;
+    renderReviewDetails(current);
     const inOffset = direction === "next" ? -40 : 40;
     reviewCardEl.style.transform = `translateX(${inOffset}px)`;
     requestAnimationFrame(() => {
@@ -176,6 +220,10 @@ async function loadReviewsFromCollector() {
       .map((r) => ({
         text: r.text.trim(),
         author: r.author_name || "Customer",
+        rating:
+          typeof r.rating === "number" && r.rating > 0 ? r.rating : 5,
+        photo: r.profile_photo_url || null,
+        relativeTime: r.relative_time_description || "",
       }));
     if (mapped.length > 0) {
       reviews = mapped;

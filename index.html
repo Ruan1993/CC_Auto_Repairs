@@ -462,26 +462,52 @@
 
           <div
             id="review-card"
-            class="bg-card-bg/60 backdrop-blur-md px-5 py-6 sm:p-8 rounded-xl border border-red-500/20 hover:border-primary transition-opacity duration-300 transition-transform shadow-lg w-full max-w-[75vw] sm:max-w-[85vw] md:max-w-2xl reveal"
+            class="bg-card-bg/60 backdrop-blur-md px-5 py-6 sm:p-8 rounded-2xl border border-red-500/30 hover:border-primary transition-opacity duration-300 transition-transform shadow-xl w-full max-w-[75vw] sm:max-w-[85vw] md:max-w-2xl reveal"
           >
-            <div class="flex mb-4 text-yellow-500">
-              <i data-feather="star" class="w-5 h-5 fill-current"></i>
-              <i data-feather="star" class="w-5 h-5 fill-current"></i>
-              <i data-feather="star" class="w-5 h-5 fill-current"></i>
-              <i data-feather="star" class="w-5 h-5 fill-current"></i>
-              <i data-feather="star" class="w-5 h-5 fill-current"></i>
+            <div class="flex items-start justify-between mb-4">
+              <div class="flex items-center gap-4">
+                <div
+                  class="w-12 h-12 rounded-full border-2 border-primary overflow-hidden bg-gray-800 flex items-center justify-center"
+                >
+                  <img
+                    id="review-avatar"
+                    src=""
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover hidden"
+                  />
+                  <span
+                    id="review-initials"
+                    class="text-white font-semibold text-lg"
+                  ></span>
+                </div>
+                <div>
+                  <h4
+                    id="review-author"
+                    class="font-bold text-white text-base sm:text-lg"
+                  ></h4>
+                  <div
+                    class="flex items-center text-yellow-500 text-sm mt-1 mb-1"
+                  >
+                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                  </div>
+                  <p id="review-meta" class="text-xs text-gray-400"></p>
+                </div>
+              </div>
+              <div
+                class="flex items-center justify-center w-8 h-8 rounded-full bg-white shadow-md"
+              >
+                <span class="text-xs font-bold" style="color: #4285f4">G</span>
+              </div>
             </div>
             <p
               id="review-text"
-              class="text-gray-300 italic mb-4 text-base sm:text-lg"
+              class="text-gray-300 italic text-base sm:text-lg leading-relaxed"
             ></p>
-            <div class="flex items-center">
-              <i data-feather="user" class="w-6 h-6 text-primary mr-3"></i>
-              <h4
-                id="review-author"
-                class="font-bold text-white text-base sm:text-lg"
-              ></h4>
-            </div>
           </div>
 
           <button
