@@ -1,11 +1,20 @@
 /* Styling the Hero background for a dramatic effect */
 .hero-bg {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)),
-    url("https://huggingface.co/spaces/UnTam3d/cc-auto-repairs-speedy-wrench-wizards/resolve/main/images/CC%20Auto%20hero%20image%20red.jpg");
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55)),
+    url("images/CC Auto hero image red.jpg");
   background-size: cover;
   background-position: center;
-  /* Ensure the container height is dramatic */
-  height: 80vh;
+  opacity: 0.35;
+  mix-blend-mode: screen;
+  z-index: 0;
 }
 
 /* Hover effects for cards */
@@ -22,12 +31,127 @@
 
 /* Base background for the entire application */
 body {
-  background-color: #121212; /* Darkest background */
-  color: #e0e0e0; /* Light gray text */
+  background-color: #000000;
+  color: white;
+  font-family: sans-serif;
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+  z-index: 0;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: -10%;
+  right: -5%;
+  width: 60vw;
+  height: 60vw;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(220, 38, 38, 0.4) 0%, rgba(0, 0, 0, 0) 70%);
+  z-index: 0;
+  animation: pulse-glow 8s ease-in-out infinite alternate;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  bottom: -10%;
+  left: -10%;
+  width: 70vw;
+  height: 70vw;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(153, 27, 27, 0.3) 0%, rgba(0, 0, 0, 0) 70%);
+  z-index: 0;
+  animation: float-slow 15s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+html {
+  background-image: linear-gradient(rgba(50, 50, 50, 0.3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(50, 50, 50, 0.3) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-attachment: fixed;
+}
+
+@keyframes pulse-glow {
+  0% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes float-slow {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(30px, -30px);
+  }
 }
 
 /* Navigation and Footer use the secondary color */
 nav,
 footer {
-  background-color: #1a1a1a;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  will-change: opacity, transform;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-100 {
+  transition-delay: 0.1s;
+}
+
+.reveal-delay-200 {
+  transition-delay: 0.2s;
+}
+
+.reveal-delay-300 {
+  transition-delay: 0.3s;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #E0162B !important;
+}
+
+.btn-pop {
+  transition: transform 0.18s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.18s ease;
+  box-shadow: 0 8px 24px rgba(224, 22, 43, 0.35),
+    0 2px 8px rgba(224, 22, 43, 0.25);
+  will-change: transform, box-shadow;
+}
+
+.btn-pop:hover {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 14px 32px rgba(224, 22, 43, 0.45),
+    0 6px 14px rgba(224, 22, 43, 0.3);
+}
+
+.btn-pop:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 6px 14px rgba(224, 22, 43, 0.3),
+    0 2px 8px rgba(224, 22, 43, 0.2);
 }

@@ -1,39 +1,55 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Professional auto repair in Dana Bay, Mossel Bay. Major and minor services, suspensions, brake & clutch. Book your appointment today."
+    />
+    <meta name="theme-color" content="#E0162B" />
     <title>CC Auto Repairs - Performance & Professional Service</title>
-    <link rel="icon" type="image/x-icon" href="/static/favicon.ico" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              // Aggressive, performance-focused Red
-              primary: "#E0162B",
-              // Deep Charcoal/Near-Black for primary background
-              secondary: "#1A1A1A",
-              "dark-bg": "#121212",
-              "card-bg": "#1E1E1E",
-            },
-            fontFamily: {
-              sans: ["Inter", "sans-serif"],
-            },
-          },
-        },
-      };
-    </script>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="images/CC%20Auto%20Repairs%20Logo.png"
+    />
+    <link rel="apple-touch-icon" href="images/CC%20Auto%20Repairs%20Logo.png" />
+    <link href="dist/tailwind.css" rel="stylesheet" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"
+      defer
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
       rel="stylesheet"
     />
+    <meta
+      property="og:title"
+      content="CC Auto Repairs - Performance & Professional Service"
+    />
+    <meta
+      property="og:description"
+      content="Trusted auto service in Dana Bay, Mossel Bay. Book your appointment today."
+    />
+    <meta property="og:url" content="https://ccautorepairs.netlify.app/" />
+    <meta
+      property="og:image"
+      content="https://ccautorepairs.netlify.app/images/CC%20Auto%20Repairs%20Logo.png"
+    />
+    <meta
+      property="og:image:secure_url"
+      content="https://ccautorepairs.netlify.app/images/CC%20Auto%20Repairs%20Logo.png"
+    />
+    <meta property="og:image:alt" content="CC Auto Repairs Logo" />
+    <meta property="og:type" content="website" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body class="font-sans">
-    <nav class="bg-secondary shadow-2xl sticky top-0 z-50">
+    <nav class="bg-transparent shadow-2xl sticky top-0 z-50">
       <div
         class="container mx-auto px-6 py-4 flex justify-between items-center"
       >
@@ -66,6 +82,11 @@
             href="#about"
             class="nav-link text-lg font-medium text-gray-400 hover:text-primary transition-colors relative group"
             >About</a
+          >
+          <a
+            href="#reviews"
+            class="nav-link text-lg font-medium text-gray-400 hover:text-primary transition-colors relative group"
+            >Reviews</a
           >
           <a
             href="#contact"
@@ -132,6 +153,11 @@
                 >About</a
               >
               <a
+                href="#reviews"
+                class="text-lg font-medium text-gray-300 hover:bg-primary hover:text-secondary rounded-md p-3 transition-colors"
+                >Reviews</a
+              >
+              <a
                 href="#contact"
                 class="text-lg font-medium text-gray-300 hover:bg-primary hover:text-secondary rounded-md p-3 transition-colors"
                 >Contact</a
@@ -142,9 +168,11 @@
       </div>
     </nav>
 
-    <section class="hero-bg flex items-center justify-center text-white">
+    <section
+      class="hero-bg flex items-center justify-center text-white min-h-[80vh]"
+    >
       <div
-        class="text-center px-4 backdrop-blur-sm bg-black/40 p-8 rounded-xl border-2 border-primary/50"
+        class="text-center px-4 backdrop-blur-sm bg-black/40 p-8 rounded-xl border-2 border-primary/50 reveal"
       >
         <h1
           class="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-4 tracking-tight"
@@ -159,13 +187,13 @@
         <div class="flex flex-col sm:flex-row justify-center gap-4">
           <a
             href="#contact"
-            class="bg-primary hover:bg-[#A90F1E] text-white font-bold py-3 px-8 rounded-full transition duration-300 text-lg shadow-primary/50 shadow-lg hover:shadow-xl hover:scale-[1.02]"
+            class="bg-primary hover:bg-[#A90F1E] text-white font-bold py-3 px-8 rounded-full transition duration-300 text-lg shadow-primary/50 shadow-lg btn-pop"
           >
             Book Appointment
           </a>
           <a
             href="#services"
-            class="bg-white/10 border border-white/20 hover:bg-primary/20 text-white font-semibold py-3 px-8 rounded-full transition duration-300 text-lg"
+            class="bg-white/10 border border-white/20 hover:bg-primary/20 text-white font-semibold py-3 px-8 rounded-full transition duration-300 text-lg btn-pop"
           >
             Explore Services
           </a>
@@ -173,7 +201,7 @@
       </div>
     </section>
 
-    <section id="services" class="py-20 bg-dark-bg">
+    <section id="services" class="py-20 bg-transparent">
       <div class="container mx-auto px-6">
         <div class="text-center mb-16">
           <h2 class="text-4xl font-bold mb-4 text-white">
@@ -183,9 +211,43 @@
             Focused care for your vehicle's longevity and performance.
           </p>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="flex items-center justify-center gap-3 mt-6 md:hidden">
+          <button
+            id="service-prev"
+            aria-label="Previous service"
+            class="bg-primary text-white rounded-full p-2 sm:p-3 shadow-lg transition opacity-70 hover:opacity-100 shrink-0 btn-pop"
+          >
+            <i data-feather="chevron-left" class="w-5 h-5"></i>
+          </button>
+
           <div
-            class="service-card bg-card-bg p-8 rounded-2xl shadow-xl hover:shadow-primary/30 transition duration-300"
+            id="service-card"
+            class="bg-card-bg/60 backdrop-blur-md px-5 py-6 sm:p-8 rounded-2xl border border-red-500/20 hover:border-primary transition-opacity duration-300 transition-transform shadow-lg w-full max-w-[80vw] sm:max-w-[85vw]"
+          >
+            <div
+              class="bg-primary/20 p-4 rounded-full w-14 h-14 flex items-center justify-center mb-6"
+            >
+              <span id="service-icon" class="inline-flex"></span>
+            </div>
+            <h3
+              id="service-title"
+              class="text-lg font-extrabold text-white mb-3"
+            ></h3>
+            <p id="service-desc" class="text-gray-400 text-base"></p>
+          </div>
+
+          <button
+            id="service-next"
+            aria-label="Next service"
+            class="bg-primary text-white rounded-full p-2 sm:p-3 shadow-lg transition opacity-70 hover:opacity-100 shrink-0 btn-pop"
+          >
+            <i data-feather="chevron-right" class="w-5 h-5"></i>
+          </button>
+        </div>
+
+        <div class="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-8">
+          <div
+            class="service-card bg-card-bg/60 backdrop-blur-md p-8 rounded-2xl border border-red-500/20 shadow-xl hover:shadow-primary/30 transition duration-300 reveal"
             tabindex="0"
           >
             <div
@@ -203,7 +265,7 @@
           </div>
 
           <div
-            class="service-card bg-card-bg p-8 rounded-2xl shadow-xl hover:shadow-primary/30 transition duration-300"
+            class="service-card bg-card-bg/60 backdrop-blur-md p-8 rounded-2xl border border-red-500/20 shadow-xl hover:shadow-primary/30 transition duration-300 reveal reveal-delay-100"
             tabindex="0"
           >
             <div
@@ -224,7 +286,7 @@
           </div>
 
           <div
-            class="service-card bg-card-bg p-8 rounded-2xl shadow-xl hover:shadow-primary/30 transition duration-300"
+            class="service-card bg-card-bg/60 backdrop-blur-md p-8 rounded-2xl border border-red-500/20 shadow-xl hover:shadow-primary/30 transition duration-300 reveal reveal-delay-200"
             tabindex="0"
           >
             <div
@@ -240,7 +302,7 @@
           </div>
 
           <div
-            class="service-card bg-card-bg p-8 rounded-2xl shadow-xl hover:shadow-primary/30 transition duration-300"
+            class="service-card bg-card-bg/60 backdrop-blur-md p-8 rounded-2xl border border-red-500/20 shadow-xl hover:shadow-primary/30 transition duration-300 reveal reveal-delay-300"
             tabindex="0"
           >
             <div
@@ -263,8 +325,6 @@
       </div>
     </section>
 
-    ---
-
     <section
       id="about"
       class="py-20 bg-dark-bg border-t border-b border-gray-800"
@@ -273,7 +333,7 @@
         <div
           class="flex flex-col lg:flex-row items-center justify-between gap-12"
         >
-          <div class="lg:w-1/2 text-center lg:text-left">
+          <div class="lg:w-1/2 text-center lg:text-left reveal">
             <h2 class="text-4xl font-bold text-white mb-6">
               A New Standard in Auto Care
             </h2>
@@ -291,7 +351,9 @@
               the most trusted name in local auto service.
             </p>
           </div>
-          <div class="lg:w-1/2 flex flex-col justify-center">
+          <div
+            class="lg:w-1/2 flex flex-col justify-center reveal reveal-delay-200"
+          >
             <div class="grid grid-cols-2 gap-4 text-left">
               <div class="flex items-center">
                 <i data-feather="award" class="text-primary mr-2 w-5 h-5"></i>
@@ -323,9 +385,53 @@
       </div>
     </section>
 
-    ---
+    <script>
+      (function () {
+        function initReveal() {
+          var elements = document.querySelectorAll(".reveal");
+          if (!("IntersectionObserver" in window)) {
+            elements.forEach(function (el) {
+              el.classList.add("show");
+            });
+            return;
+          }
+          var observer = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add("show");
+                  observer.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0, rootMargin: "0px 0px -10% 0px" },
+          );
+          elements.forEach(function (el) {
+            var rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight * 0.95) {
+              el.classList.add("show");
+            } else {
+              observer.observe(el);
+            }
+          });
+        }
+        if (
+          document.readyState === "complete" ||
+          document.readyState === "interactive"
+        ) {
+          setTimeout(initReveal, 0);
+        } else {
+          window.addEventListener("DOMContentLoaded", initReveal);
+        }
+        window.addEventListener("load", function () {
+          if (window.feather && typeof window.feather.replace === "function") {
+            window.feather.replace();
+          }
+        });
+      })();
+    </script>
 
-    <section class="py-20 bg-secondary">
+    <section id="reviews" class="py-20 bg-secondary/70">
       <div class="container mx-auto px-6">
         <div class="text-center mb-16">
           <h2 class="text-4xl font-bold mb-4 text-white">
@@ -334,10 +440,29 @@
           <p class="max-w-3xl mx-auto text-gray-400 text-lg">
             Genuine feedback from customers who choose quality and reliability.
           </p>
+          <div class="mt-8">
+            <a
+              href="https://g.page/r/CcGOnuXHQoo_EAE/review"
+              target="_blank"
+              rel="noopener"
+              class="bg-primary hover:bg-[#A90F1E] text-white font-bold py-3 px-8 rounded-full transition duration-300 text-lg shadow-primary/50 shadow-lg inline-block btn-pop"
+            >
+              Leave a Review
+            </a>
+          </div>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="flex items-center justify-center gap-3 mt-6">
+          <button
+            id="review-prev"
+            aria-label="Previous review"
+            class="bg-primary text-white rounded-full p-2 sm:p-3 shadow-lg transition opacity-70 hover:opacity-100 shrink-0 btn-pop"
+          >
+            <i data-feather="chevron-left" class="w-5 h-5"></i>
+          </button>
+
           <div
-            class="bg-card-bg p-8 rounded-xl border border-gray-700 hover:border-primary transition-all duration-300 shadow-lg"
+            id="review-card"
+            class="bg-card-bg/60 backdrop-blur-md px-5 py-6 sm:p-8 rounded-xl border border-red-500/20 hover:border-primary transition-opacity duration-300 transition-transform shadow-lg w-full max-w-[75vw] sm:max-w-[85vw] md:max-w-2xl reveal"
           >
             <div class="flex mb-4 text-yellow-500">
               <i data-feather="star" class="w-5 h-5 fill-current"></i>
@@ -346,64 +471,31 @@
               <i data-feather="star" class="w-5 h-5 fill-current"></i>
               <i data-feather="star" class="w-5 h-5 fill-current"></i>
             </div>
-            <p class="text-gray-300 italic mb-4">
-              "They explained everything clearly and finished faster than
-              expected. The best auto service experience I've had locally!"
-            </p>
+            <p
+              id="review-text"
+              class="text-gray-300 italic mb-4 text-base sm:text-lg"
+            ></p>
             <div class="flex items-center">
               <i data-feather="user" class="w-6 h-6 text-primary mr-3"></i>
-              <h4 class="font-bold text-white">Michael Johnson</h4>
+              <h4
+                id="review-author"
+                class="font-bold text-white text-base sm:text-lg"
+              ></h4>
             </div>
           </div>
 
-          <div
-            class="bg-card-bg p-8 rounded-xl border border-gray-700 hover:border-primary transition-all duration-300 shadow-lg"
+          <button
+            id="review-next"
+            aria-label="Next review"
+            class="bg-primary text-white rounded-full p-2 sm:p-3 shadow-lg transition opacity-70 hover:opacity-100 shrink-0 btn-pop"
           >
-            <div class="flex mb-4 text-yellow-500">
-              <i data-feather="star" class="w-5 h-5 fill-current"></i>
-              <i data-feather="star" class="w-5 h-5 fill-current"></i>
-              <i data-feather="star" class="w-5 h-5 fill-current"></i>
-              <i data-feather="star" class="w-5 h-5 fill-current"></i>
-              <i data-feather="star" class="w-5 h-5 fill-current"></i>
-            </div>
-            <p class="text-gray-300 italic mb-4">
-              "Owner Corne diagnosed my suspension issue accurately and provided
-              excellent, honest service. Will definitely return for all my
-              repairs."
-            </p>
-            <div class="flex items-center">
-              <i data-feather="user" class="w-6 h-6 text-primary mr-3"></i>
-              <h4 class="font-bold text-white">Sarah Williams</h4>
-            </div>
-          </div>
-
-          <div
-            class="bg-card-bg p-8 rounded-xl border border-gray-700 hover:border-primary transition-all duration-300 shadow-lg"
-          >
-            <div class="flex mb-4 text-yellow-500">
-              <i data-feather="star" class="w-5 h-5 fill-current"></i>
-              <i data-feather="star" class="w-5 h-5 fill-current"></i>
-              <i data-feather="star" class="w-5 h-5 fill-current"></i>
-              <i data-feather="star" class="w-5 h-5 fill-current"></i>
-              <i data-feather="star" class="w-5 h-5 fill-current"></i>
-            </div>
-            <p class="text-gray-300 italic mb-4">
-              "My car runs smoother after their brake service and fluid change.
-              Transparent pricing and quality service for a first-time
-              customer."
-            </p>
-            <div class="flex items-center">
-              <i data-feather="user" class="w-6 h-6 text-primary mr-3"></i>
-              <h4 class="font-bold text-white">David Rodriguez</h4>
-            </div>
-          </div>
+            <i data-feather="chevron-right" class="w-5 h-5"></i>
+          </button>
         </div>
       </div>
     </section>
 
-    ---
-
-    <section id="contact" class="py-20 bg-dark-bg">
+    <section id="contact" class="py-20 bg-transparent">
       <div class="container mx-auto px-6">
         <div class="text-center mb-16">
           <h2 class="text-4xl font-bold text-white mb-4">
@@ -417,7 +509,7 @@
         <div class="flex flex-col lg:flex-row gap-12">
           <div class="lg:w-1/2">
             <form
-              class="space-y-6 bg-secondary p-10 rounded-2xl shadow-2xl border border-primary/50"
+              class="space-y-6 bg-secondary/80 p-10 rounded-2xl shadow-2xl border border-primary/50 reveal"
               action="https://formspree.io/f/xvgwdqll"
               method="POST"
             >
@@ -434,7 +526,7 @@
                     id="name"
                     name="name"
                     required
-                    class="w-full px-4 py-3 bg-card-bg text-white border border-gray-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary placeholder-gray-500 transition"
+                    class="w-full px-4 py-3 bg-card-bg/60 text-white border border-gray-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary placeholder-gray-500 transition"
                     placeholder="Full name"
                   />
                 </div>
@@ -449,7 +541,7 @@
                     id="email"
                     name="email"
                     required
-                    class="w-full px-4 py-3 bg-card-bg text-white border border-gray-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary placeholder-gray-500 transition"
+                    class="w-full px-4 py-3 bg-card-bg/60 text-white border border-gray-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary placeholder-gray-500 transition"
                     placeholder="email@example.com"
                   />
                 </div>
@@ -463,7 +555,7 @@
                   id="phone"
                   name="phone"
                   required
-                  class="w-full px-4 py-3 bg-card-bg text-white border border-gray-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary placeholder-gray-500 transition"
+                  class="w-full px-4 py-3 bg-card-bg/60 text-white border border-gray-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary placeholder-gray-500 transition"
                   placeholder="Phone number"
                 />
               </div>
@@ -476,7 +568,7 @@
                 <select
                   id="service"
                   name="service"
-                  class="w-full px-4 py-3 bg-card-bg text-white border border-gray-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition"
+                  class="w-full px-4 py-3 bg-card-bg/60 text-white border border-gray-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition"
                 >
                   <option value="" class="bg-card-bg">Select a service</option>
                   <option value="major" class="bg-card-bg">
@@ -504,13 +596,13 @@
                   id="message"
                   name="message"
                   rows="4"
-                  class="w-full px-4 py-3 bg-card-bg text-white border border-gray-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary placeholder-gray-500 transition"
+                  class="w-full px-4 py-3 bg-card-bg/60 text-white border border-gray-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary placeholder-gray-500 transition"
                   placeholder="Year, Make, Model, and service request..."
                 ></textarea>
               </div>
               <button
                 type="submit"
-                class="bg-primary hover:bg-[#A90F1E] text-white font-bold py-3 px-6 rounded-full transition duration-300 w-full text-lg shadow-lg shadow-primary/50"
+                class="bg-primary hover:bg-[#A90F1E] text-white font-bold py-3 px-6 rounded-full transition duration-300 w-full text-lg shadow-lg shadow-primary/50 btn-pop"
               >
                 Book Now
                 <i
@@ -523,7 +615,7 @@
 
           <div class="lg:w-1/2">
             <div
-              class="bg-secondary p-10 rounded-2xl shadow-2xl border border-primary/50 h-full space-y-8"
+              class="bg-secondary/80 p-10 rounded-2xl shadow-2xl border border-primary/50 h-full space-y-8 reveal reveal-delay-200"
             >
               <h3
                 class="text-2xl font-bold text-white mb-6 border-b border-primary/50 pb-3"
@@ -594,46 +686,146 @@
               </div>
 
               <div class="border-t border-gray-700 pt-6">
-                <h4 class="font-medium text-white mb-4">Find Us & Connect</h4>
-                <div class="flex space-x-4">
-                  <a
-                    href="tel:0742187468"
-                    class="bg-green-600 hover:bg-green-700 p-3 rounded-full transition shadow-lg group relative"
-                    title="Phone us"
-                  >
-                    <i data-feather="phone" class="text-white w-6 h-6"></i>
-                  </a>
-                  <a
-                    href="mailto:cornebotha6991@gmail.com"
-                    class="bg-primary hover:bg-[#A90F1E] p-3 rounded-full transition shadow-lg group relative"
-                    title="Email us"
-                  >
-                    <i data-feather="mail" class="text-white w-6 h-6"></i>
-                  </a>
-                  <a
-                    href="https://share.google/Ytcs8eO9rc2Nc4edX"
-                    target="_blank"
-                    class="bg-blue-600 hover:bg-blue-700 p-3 rounded-full transition shadow-lg group relative"
-                    title="Find us on Google"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="feather feather-map-pin text-white w-6 h-6"
-                    >
-                      <path
-                        d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
-                      ></path>
-                      <circle cx="12" cy="10" r="3"></circle>
-                    </svg>
-                  </a>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <h4 class="font-medium text-white mb-4">
+                      Find Us & Connect
+                    </h4>
+                    <div class="flex space-x-4">
+                      <a
+                        href="tel:0742187468"
+                        class="bg-green-600 hover:bg-green-700 p-3 rounded-full transition shadow-lg group relative"
+                      >
+                        <i data-feather="phone" class="text-white w-6 h-6"></i>
+                        <span
+                          class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap"
+                          >Call us</span
+                        >
+                      </a>
+                      <a
+                        href="https://wa.me/27742187468?text=Hi%20CC%20Auto%20Repairs%2C%20I%27d%20like%20to%20book%20a%20service."
+                        target="_blank"
+                        class="bg-green-500 hover:bg-green-600 p-3 rounded-full transition shadow-lg group relative"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 16 16"
+                          fill="currentColor"
+                          class="w-6 h-6 text-white"
+                          aria-hidden="true"
+                        >
+                          <path
+                            d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"
+                          />
+                        </svg>
+                        <span
+                          class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap"
+                          >Whatsapp</span
+                        >
+                      </a>
+                      <a
+                        href="mailto:cornebotha6991@gmail.com"
+                        class="bg-primary hover:bg-[#A90F1E] p-3 rounded-full transition shadow-lg group relative"
+                      >
+                        <i data-feather="mail" class="text-white w-6 h-6"></i>
+                        <span
+                          class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap"
+                          >Email us</span
+                        >
+                      </a>
+                      <a
+                        href="https://share.google/Ytcs8eO9rc2Nc4edX"
+                        target="_blank"
+                        class="bg-blue-600 hover:bg-blue-700 p-3 rounded-full transition shadow-lg group relative"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="feather feather-map-pin text-white w-6 h-6"
+                        >
+                          <path
+                            d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
+                          ></path>
+                          <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        <span
+                          class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap"
+                          >Find us on Google</span
+                        >
+                      </a>
+                    </div>
+                  </div>
+                  <div>
+                    <h4 class="font-medium text-white mb-4">
+                      Share our website
+                    </h4>
+                    <div class="flex space-x-4">
+                      <a
+                        href="https://wa.me/?text=CC%20Auto%20Repairs%20-%20Dana%20Bay%20%28https%3A%2F%2Fccautorepairs.netlify.app%2F%29"
+                        target="_blank"
+                        class="bg-green-500 hover:bg-green-600 p-3 rounded-full transition shadow-lg group relative"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 16 16"
+                          fill="currentColor"
+                          class="w-6 h-6 text-white"
+                          aria-hidden="true"
+                        >
+                          <path
+                            d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"
+                          />
+                        </svg>
+                        <span
+                          class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap"
+                          >Whatsapp</span
+                        >
+                      </a>
+                      <a
+                        href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fccautorepairs.netlify.app%2F"
+                        target="_blank"
+                        class="bg-blue-700 hover:bg-blue-800 p-3 rounded-full transition shadow-lg group relative"
+                      >
+                        <i
+                          data-feather="facebook"
+                          class="text-white w-6 h-6"
+                        ></i>
+                        <span
+                          class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap"
+                          >Facebook</span
+                        >
+                      </a>
+                      <a
+                        href="sms:?&body=CC%20Auto%20Repairs%20-%20Dana%20Bay%20https%3A%2F%2Fccautorepairs.netlify.app%2F"
+                        class="bg-yellow-600 hover:bg-yellow-700 p-3 rounded-full transition shadow-lg group relative"
+                      >
+                        <i data-feather="send" class="text-white w-6 h-6"></i>
+                        <span
+                          class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap"
+                          >SMS</span
+                        >
+                      </a>
+                      <button
+                        id="share-copy"
+                        class="bg-gray-700 hover:bg-gray-800 p-3 rounded-full transition shadow-lg group relative"
+                        type="button"
+                      >
+                        <i data-feather="copy" class="text-white w-6 h-6"></i>
+                        <span
+                          id="share-copy-tip"
+                          class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap"
+                          >Copy Link</span
+                        >
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -642,7 +834,7 @@
       </div>
     </section>
 
-    <footer class="bg-secondary text-white py-12 border-t border-primary/50">
+    <footer class="bg-transparent text-white py-12 border-t border-primary/50">
       <div class="container mx-auto px-6">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div class="md:col-span-1">
@@ -743,17 +935,33 @@
           <p class="text-gray-500 text-sm">
             © 2025 CC Auto Repairs. All rights reserved.
           </p>
+          <p class="text-gray-500 text-sm mt-2">
+            Designed by
+            <a
+              href="https://rcdigitalcreations.co.za"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-primary hover:underline"
+            >
+              RC Digital Creations
+            </a>
+          </p>
         </div>
       </div>
     </footer>
 
     <button
-      onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
       class="fixed bottom-6 right-6 bg-primary p-3 rounded-full transition-all duration-300 z-50 shadow-xl opacity-80 hover:opacity-100 hover:scale-105"
     >
       <i data-feather="arrow-up" class="text-white w-6 h-6"></i>
     </button>
 
-    <script src="script.js"></script>
+    <script>
+      window.RC_REVIEW_COLLECTOR_BASE_URL =
+        "https://rc-review-collector.vercel.app";
+      window.RC_REVIEW_WIDGET_ID = "cc-auto";
+    </script>
+    <script src="script.js" defer></script>
   </body>
 </html>
