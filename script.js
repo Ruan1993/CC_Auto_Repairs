@@ -119,7 +119,7 @@ const reviewNextBtn = document.getElementById("review-next");
 
 let reviewIndex = 0;
 let reviewTimer = null;
-const ROTATE_MS = 6000;
+const ROTATE_MS = 8000;
 
 function renderReviewDetails(review) {
   if (reviewAvatarEl && reviewInitialsEl) {
