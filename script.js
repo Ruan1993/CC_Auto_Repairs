@@ -158,7 +158,7 @@ function showReview(i) {
 
   const review = reviews[reviewIndex];
   const photoUrl = review.photo || getInitialsAvatar(review.author);
-  const relativeTime = review.relativeTime || ""; // e.g. "2 weeks ago"
+  const dateDisplay = review.date || review.relativeTime || "";
 
   reviewsContainer.style.opacity = 0;
   
@@ -181,7 +181,7 @@ function showReview(i) {
           <div class="text-left">
             <h3 class="font-bold text-gray-900 text-sm">${review.author}</h3>
             <div class="flex items-center mt-0.5 text-xs text-gray-500">
-               <span class="mr-2">${relativeTime}</span>
+               <span class="mr-2">${dateDisplay}</span>
             </div>
             <div class="flex items-center mt-1">
               ${renderStars(review.rating)}
@@ -273,6 +273,12 @@ async function fetchReviews() {
         author: r.author_name,
         rating: r.rating,
         photo: r.profile_photo_url,
+        // Convert timestamp (seconds) to formatted date (e.g. "24 Jan 2026")
+        date: r.time ? new Date(r.time * 1000).toLocaleDateString("en-GB", {
+          day: "numeric",
+          month: "short",
+          year: "numeric"
+        }) : null,
         relativeTime: r.relative_time_description
       }));
     }
