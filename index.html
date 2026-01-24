@@ -451,7 +451,28 @@
             </a>
           </div>
         </div>
-        <div id="reviews-container" class="mt-8 px-4"></div>
+        <div class="flex items-center justify-center gap-4 mt-8 px-4 relative">
+          <!-- Prev Button (Hidden on mobile) -->
+          <button
+            id="review-prev"
+            class="hidden md:flex bg-primary text-white rounded-full p-3 shadow-lg transition opacity-70 hover:opacity-100 shrink-0 z-10"
+            aria-label="Previous review"
+          >
+            <i data-feather="chevron-left" class="w-6 h-6"></i>
+          </button>
+
+          <!-- Review Card Container -->
+          <div id="reviews-container" class="w-full max-w-2xl"></div>
+
+          <!-- Next Button (Hidden on mobile) -->
+          <button
+            id="review-next"
+            class="hidden md:flex bg-primary text-white rounded-full p-3 shadow-lg transition opacity-70 hover:opacity-100 shrink-0 z-10"
+            aria-label="Next review"
+          >
+            <i data-feather="chevron-right" class="w-6 h-6"></i>
+          </button>
+        </div>
       </div>
     </section>
 

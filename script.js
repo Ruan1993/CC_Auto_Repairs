@@ -115,6 +115,8 @@ const fallbackReviews = [
 ];
 
 const reviewsContainer = document.getElementById("reviews-container");
+const reviewPrevBtn = document.getElementById("review-prev");
+const reviewNextBtn = document.getElementById("review-next");
 let reviewIndex = 0;
 let reviewTimer = null;
 const ROTATE_MS = 8000;
@@ -196,9 +198,55 @@ function showReview(i) {
 }
 
 function startReviewTimer() {
+  if (reviewTimer) clearInterval(reviewTimer);
   reviewTimer = setInterval(() => {
     showReview(reviewIndex + 1);
   }, ROTATE_MS);
+}
+
+function resetReviewTimer() {
+  startReviewTimer();
+}
+
+// Attach Event Listeners for Buttons
+if (reviewPrevBtn && reviewNextBtn) {
+  reviewPrevBtn.addEventListener("click", () => {
+    showReview(reviewIndex - 1);
+    resetReviewTimer();
+  });
+  reviewNextBtn.addEventListener("click", () => {
+    showReview(reviewIndex + 1);
+    resetReviewTimer();
+  });
+}
+
+// Touch Swipe Detection for Mobile
+let touchStartX = 0;
+let touchEndX = 0;
+
+if (reviewsContainer) {
+  reviewsContainer.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+
+  reviewsContainer.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  });
+}
+
+function handleSwipe() {
+  const threshold = 50; // Minimum distance for swipe
+  if (touchEndX < touchStartX - threshold) {
+    // Swipe Left (Next)
+    showReview(reviewIndex + 1);
+    resetReviewTimer();
+  }
+  if (touchEndX > touchStartX + threshold) {
+    // Swipe Right (Prev)
+    showReview(reviewIndex - 1);
+    resetReviewTimer();
+  }
 }
 
 // Fetch Reviews from API
