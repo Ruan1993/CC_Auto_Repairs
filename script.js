@@ -98,77 +98,101 @@ const fallbackReviews = [
   },
   {
     text:
-      "My car runs smoother after their brake service and fluid change. Transparent pricing and quality service for a first-time customer.",
-    author: "David Rodriguez",
+      "I was worried about the cost of my clutch replacement, but CC Auto gave me a fair quote and stuck to it. No hidden surprises!",
+    author: "David Brown",
+    rating: 5,
+    photo: null,
+    relativeTime: "",
+  },
+  {
+    text:
+      "Professional, friendly, and efficient. My car runs smoother than ever after the major service. Highly recommended!",
+    author: "Emily Davis",
     rating: 5,
     photo: null,
     relativeTime: "",
   },
 ];
 
-let reviews = fallbackReviews.slice();
-
-const reviewTextEl = document.getElementById("review-text");
-const reviewAuthorEl = document.getElementById("review-author");
-const reviewCardEl = document.getElementById("review-card");
-const reviewAvatarEl = document.getElementById("review-avatar");
-const reviewInitialsEl = document.getElementById("review-initials");
-const reviewMetaEl = document.getElementById("review-meta");
-const reviewPrevBtn = document.getElementById("review-prev");
-const reviewNextBtn = document.getElementById("review-next");
-
+const reviewsContainer = document.getElementById("reviews-container");
 let reviewIndex = 0;
 let reviewTimer = null;
 const ROTATE_MS = 8000;
+let reviews = [...fallbackReviews]; // Default to fallback
 
-function renderReviewDetails(review) {
-  if (reviewAvatarEl && reviewInitialsEl) {
-    const hasPhoto = review.photo && typeof review.photo === "string";
-    if (hasPhoto) {
-      reviewAvatarEl.src = review.photo;
-      reviewAvatarEl.alt = review.author || "Reviewer";
-      reviewAvatarEl.classList.remove("hidden");
-      reviewInitialsEl.classList.add("hidden");
-    } else {
-      reviewAvatarEl.src = "";
-      reviewAvatarEl.classList.add("hidden");
-      const name = review.author || "";
-      const initial = name.trim().charAt(0).toUpperCase() || "C";
-      reviewInitialsEl.textContent = initial;
-      reviewInitialsEl.classList.remove("hidden");
-    }
+// Function to generate Initials Avatar SVG
+function getInitialsAvatar(name) {
+  const names = name.split(" ");
+  let initials = names[0].charAt(0).toUpperCase();
+  if (names.length > 1) {
+    initials += names[names.length - 1].charAt(0).toUpperCase();
   }
-  if (reviewMetaEl) {
-    const parts = [];
-    if (typeof review.rating === "number" && review.rating > 0) {
-      const rounded = Math.round(review.rating * 10) / 10;
-      parts.push(`${rounded.toFixed(1)} ★`);
-    }
-    if (review.relativeTime && typeof review.relativeTime === "string") {
-      parts.push(review.relativeTime);
-    }
-    reviewMetaEl.textContent = parts.join(" · ") || "Google review";
-  }
+  
+  // Material Design colors
+  const colors = [
+    "#F44336", "#E91E63", "#9C27B0", "#673AB7", "#3F51B5",
+    "#2196F3", "#03A9F4", "#00BCD4", "#009688", "#4CAF50",
+    "#8BC34A", "#CDDC39", "#FFC107", "#FF9800", "#FF5722"
+  ];
+  const colorIndex = name.charCodeAt(0) % colors.length;
+  const bgColor = colors[colorIndex];
+
+  return `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='${encodeURIComponent(bgColor)}'/><text x='50' y='50' dy='.35em' fill='white' font-family='Arial' font-size='40' text-anchor='middle'>${initials}</text></svg>`;
 }
 
-function showReview(i, direction = "next") {
+// Function to render stars
+function renderStars(rating) {
+  let starsHtml = "";
+  for (let i = 0; i < 5; i++) {
+    const fillClass = i < rating ? "text-yellow-400 fill-current" : "text-gray-300";
+    starsHtml += `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star ${fillClass}"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>`;
+  }
+  return starsHtml;
+}
+
+function showReview(i) {
   reviewIndex = (i + reviews.length) % reviews.length;
-  if (!reviewCardEl || !reviewTextEl || !reviewAuthorEl) return;
-  const outOffset = direction === "next" ? 40 : -40;
-  reviewCardEl.style.opacity = 0;
-  reviewCardEl.style.transform = `translateX(${outOffset}px)`;
+  if (!reviewsContainer) return;
+
+  const review = reviews[reviewIndex];
+  const photoUrl = review.photo || getInitialsAvatar(review.author);
+  const relativeTime = review.relativeTime || ""; // e.g. "2 weeks ago"
+
+  reviewsContainer.style.opacity = 0;
+  
   setTimeout(() => {
-    const current = reviews[reviewIndex];
-    reviewTextEl.textContent = current.text;
-    reviewAuthorEl.textContent = current.author;
-    renderReviewDetails(current);
-    const inOffset = direction === "next" ? -40 : 40;
-    reviewCardEl.style.transform = `translateX(${inOffset}px)`;
-    requestAnimationFrame(() => {
-      reviewCardEl.style.opacity = 1;
-      reviewCardEl.style.transform = "translateX(0)";
-    });
-  }, 150);
+    // Google-style review card HTML
+    reviewsContainer.innerHTML = `
+      <div class="bg-white p-6 rounded-lg shadow-md max-w-2xl mx-auto border border-gray-100 relative">
+        <!-- Google Logo Badge -->
+        <div class="absolute top-6 right-6">
+           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.21.81-.63z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/><path d="M1 1h22v22H1z" fill="none"/></svg>
+        </div>
+
+        <div class="flex items-start mb-4">
+          <img 
+            src="${photoUrl}" 
+            alt="${review.author}" 
+            class="w-10 h-10 rounded-full mr-4 object-cover border border-gray-200"
+            onerror="this.src='${getInitialsAvatar(review.author)}'"
+          >
+          <div class="text-left">
+            <h3 class="font-bold text-gray-900 text-sm">${review.author}</h3>
+            <div class="flex items-center mt-0.5 text-xs text-gray-500">
+               <span class="mr-2">${relativeTime}</span>
+            </div>
+            <div class="flex items-center mt-1">
+              ${renderStars(review.rating)}
+            </div>
+          </div>
+        </div>
+        
+        <p class="text-gray-700 italic text-lg leading-relaxed text-left">"${review.text}"</p>
+      </div>
+    `;
+
+    reviewsContainer.style.opacity = 1;
+  }, 300);
 }
 
 function startReviewTimer() {
@@ -177,74 +201,54 @@ function startReviewTimer() {
   }, ROTATE_MS);
 }
 
-function resetReviewTimer() {
-  if (reviewTimer) clearInterval(reviewTimer);
-  startReviewTimer();
-}
+// Fetch Reviews from API
+async function fetchReviews() {
+  const baseUrl = window.RC_REVIEW_COLLECTOR_BASE_URL;
+  const widgetId = window.RC_REVIEW_WIDGET_ID;
 
-if (reviewPrevBtn && reviewNextBtn) {
-  reviewPrevBtn.addEventListener("click", () => {
-    showReview(reviewIndex - 1, "prev");
-    resetReviewTimer();
-  });
-  reviewNextBtn.addEventListener("click", () => {
-    showReview(reviewIndex + 1, "next");
-    resetReviewTimer();
-  });
-}
+  if (!baseUrl || !widgetId) {
+    console.warn("Review Collector configuration missing. Using fallback.");
+    showReview(0);
+    startReviewTimer();
+    return;
+  }
 
-const DEFAULT_REVIEW_COLLECTOR_BASE_URL = "http://localhost:3000";
-const DEFAULT_REVIEW_WIDGET_ID = "cc-auto";
-
-async function loadReviewsFromCollector() {
-  const baseUrl =
-    window.RC_REVIEW_COLLECTOR_BASE_URL || DEFAULT_REVIEW_COLLECTOR_BASE_URL;
-  const widgetId = window.RC_REVIEW_WIDGET_ID || DEFAULT_REVIEW_WIDGET_ID;
-  const url = `${baseUrl.replace(
-    /\/$/,
-    "",
-  )}/api/widget?id=${encodeURIComponent(widgetId)}`;
   try {
-    const response = await fetch(url);
-    if (!response.ok) {
-      return;
-    }
+    const response = await fetch(`${baseUrl}/api/widget?id=${widgetId}`);
+    if (!response.ok) throw new Error("Failed to fetch reviews");
+    
     const data = await response.json();
-    if (!data || !Array.isArray(data.reviews) || data.reviews.length === 0) {
-      return;
-    }
-    const mapped = data.reviews
-      .filter(
-        (r) => r && typeof r.text === "string" && r.text.trim().length > 0,
-      )
-      .map((r) => ({
-        text: r.text.trim(),
-        author: r.author_name || "Customer",
-        rating:
-          typeof r.rating === "number" && r.rating > 0 ? r.rating : 5,
-        photo: r.profile_photo_url || null,
-        relativeTime: r.relative_time_description || "",
+    if (data.reviews && data.reviews.length > 0) {
+      // Map API data to our format
+      reviews = data.reviews.map(r => ({
+        text: r.text,
+        author: r.author_name,
+        rating: r.rating,
+        photo: r.profile_photo_url,
+        relativeTime: r.relative_time_description
       }));
-    if (mapped.length > 0) {
-      reviews = mapped;
-      reviewIndex = 0;
     }
-  } catch (e) {
-    console.error(e);
+  } catch (error) {
+    console.error("Error loading reviews:", error);
+    // Fallback is already set
+  } finally {
+    showReview(0);
+    startReviewTimer();
   }
 }
 
-document.addEventListener("DOMContentLoaded", async () => {
-  await loadReviewsFromCollector();
-  showReview(0, "next");
-  startReviewTimer();
+// Initialize Reviews
+document.addEventListener("DOMContentLoaded", () => {
+  if (reviewsContainer) {
+    fetchReviews();
+  }
 });
 
 const services = [
   {
     title: "Major Service",
     desc:
-      "Comprehensive vehicle service including all fluids, filters, belts, and full system inspection.",
+      "Comprehensive vehicle check including spark plugs, filters, oil, and a 62-point safety check.",
     icon: "tool",
   },
   {
@@ -353,3 +357,12 @@ if (copyBtn) {
     }
   });
 }
+
+// Footer Year Update
+document.addEventListener("DOMContentLoaded", () => {
+  const currentYear = new Date().getFullYear();
+  const copyrightYearEl = document.getElementById("copyright-year");
+  if (copyrightYearEl && currentYear > 2025) {
+    copyrightYearEl.textContent = `2025-${currentYear}`;
+  }
+});
